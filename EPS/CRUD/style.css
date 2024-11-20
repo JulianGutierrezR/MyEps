@@ -1,0 +1,178 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #555;
+}
+
+/* Menú de navegación */
+.menuc nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+}
+
+.menuc nav ul li {
+    margin: 0;
+}
+
+.menuc nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.menuc nav ul li a:hover {
+    background-color: #555;
+}
+
+/* Contenedor principal */
+div {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario */
+form {
+    margin: 20px 0;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button{
+    padding: 17px 40px;
+    border-radius: 50px;
+    border: 0;
+    background-color: gray;
+    box-shadow: #0000000d 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all .5s ease;
+}
+
+button:hover{
+    letter-spacing: 3px;
+    background-color: green;
+    color: #FFF;
+    box-shadow: green 0px 7px 29px 0px;
+}
+
+button:active{
+    letter-spacing: 3px;
+    background-color: green;
+    color: #FFF;
+    box-shadow: green 0px 0px 0px 0px;
+    transform: translate(10px);
+    transition: 100ms;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #333;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Beneficiario */
+table tr.beneficiario td {
+    font-style: italic;
+    color: #666;
+    background-color: #f9f9f9;
+}
+
+/* Enlaces */
+a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+.table-actions a {
+    color: #ff0000;
+    text-decoration: none;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.table-actions a:hover {
+    background-color: #00ff44;
+    color: white;
+}
+
+
+
+
+/* Respuesta para pantallas pequeñas */
+@media (max-width: 600px) {
+    .menuc nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form input[type="text"],
+    form input[type="number"],
+    form select {
+        font-size: 16px;
+    }
+
+    table th, table td {
+        font-size: 14px;
+    }
+}

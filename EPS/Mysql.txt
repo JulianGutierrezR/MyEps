@@ -1,0 +1,89 @@
+CREATE TABLE servicios (
+    id_servicios INT AUTO_INCREMENT,
+    citas_medicas TINYINT(1),
+    citas_prioritarias TINYINT(1),
+    medicamentos TINYINT(1),
+    atencion_virtual TINYINT(1),
+    atencion_medica TINYINT(1),
+    servicios_adicionales TEXT,
+    atencion_especializada TINYINT(1),
+    urgencias TINYINT(1),
+    PRIMARY KEY (id_servicios)
+);
+
+CREATE TABLE planes (
+    id_planes INT AUTO_INCREMENT,
+    contributivo TINYINT(1),
+    complementario TINYINT(1),
+    plus TINYINT(1),
+    preferencial TINYINT(1),
+    tarifas DECIMAL(10, 2),
+    exequial TINYINT(1),
+    PRIMARY KEY (id_planes)
+);
+
+CREATE TABLE serviciosXplanes (
+    id_servicios INT,
+    id_planes INT,
+    FOREIGN KEY (id_servicios) REFERENCES servicios(id_servicios),
+    FOREIGN KEY (id_planes) REFERENCES planes(id_planes)
+);
+
+CREATE TABLE afiliado (
+    id_afiliado INT AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    identificacion VARCHAR(50),
+    telefono VARCHAR(20),
+    edad INT,
+    genero VARCHAR(20),
+    lugar_de_nacimiento VARCHAR(50),
+    codigo_afiliado VARCHAR(20),
+    id_planes INT,
+    PRIMARY KEY (id_afiliado),
+    FOREIGN KEY (id_planes) REFERENCES planes(id_planes)
+);
+
+CREATE TABLE autorizaciones (
+    id_autorizaciones INT AUTO_INCREMENT,
+    datos_del_paciente VARCHAR(100),
+    numero VARCHAR(20),
+    informacion_del_prestador VARCHAR(100),
+    ubicacion VARCHAR(100),
+    cobro DECIMAL(10, 2),
+    observaciones TEXT,
+    descripcion TEXT,
+    cita_medica DATETIME,
+    id_afiliado INT,
+    PRIMARY KEY (id_autorizaciones),
+    FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado)
+);
+
+CREATE TABLE historial_medico (
+    id_historial_medico INT AUTO_INCREMENT,
+    codigo VARCHAR(20),
+    talla FLOAT,
+    peso FLOAT,
+    ocupacion VARCHAR(50),
+    estado_civil VARCHAR(20),
+    alta_voluntaria TINYINT(1),
+    contacto_de_emergencia VARCHAR(100),
+    informe_psicologico TEXT,
+    tipo_sangre VARCHAR(5),
+    estudios TEXT,
+    id_afiliado INT,
+    PRIMARY KEY (id_historial_medico),
+    FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado)
+);
+
+CREATE TABLE beneficiario (
+    id_beneficiario INT AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    edad INT,
+    identificacion VARCHAR(50),
+    genero VARCHAR(20),
+    telefono VARCHAR(20),
+    id_afiliado INT,
+    PRIMARY KEY (id_beneficiario),
+    FOREIGN KEY (id_afiliado) REFERENCES afiliado(id_afiliado)
+);
+
